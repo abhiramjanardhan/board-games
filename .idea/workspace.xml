@@ -5,47 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19ecfe9a-a178-42dd-8057-68545d21ed29" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/constants/GameConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/constants/snakenladder/SnakeNLadderConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/exceptions/BoardException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/exceptions/DiceException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/exceptions/PawnPositionException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/managers/GameBoardManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/managers/GameBoardManagerFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/managers/GameBoardManagerTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/managers/snakenladder/SnakeNLadderManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/mappers/snakenladder/LaddersMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/mappers/snakenladder/SnakesMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/models/Dice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/models/GameBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/models/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/models/snakenladder/Ladder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/models/snakenladder/Pawn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/models/snakenladder/Snake.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/models/snakenladder/SnakeNLadder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/models/snakenladder/config/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/models/snakenladder/config/Ladders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/models/snakenladder/config/SnakeNLadderDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/models/snakenladder/config/Snakes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/services/GameBoardService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/services/GameBoardServiceFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/services/GameBoardServiceTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/services/snakenladder/BoardService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/services/snakenladder/LadderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/services/snakenladder/SnakeNLadderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/services/snakenladder/SnakeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/utilities/InputScanner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aj/game/utilities/JsonReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/snakenladder/board.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/snakenladder/ladders.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/snakenladder/snakes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,5 +88,16 @@
       <updated>1729195830802</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
