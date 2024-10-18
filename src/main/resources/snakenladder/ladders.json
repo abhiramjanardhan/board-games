@@ -1,0 +1,30 @@
+{
+  "numberOfLadders": 5,
+  "ladders": [
+    {
+      "name": "Johnson",
+      "start": 10,
+      "end": 65
+    },
+    {
+      "name": "Jonathan",
+      "start": 34,
+      "end": 46
+    },
+    {
+      "name": "Michelle",
+      "start": 65,
+      "end": 87
+    },
+    {
+      "name": "Natalie",
+      "start": 22,
+      "end": 26
+    },
+    {
+      "name": "Kim",
+      "start": 5,
+      "end": 30
+    }
+  ]
+}

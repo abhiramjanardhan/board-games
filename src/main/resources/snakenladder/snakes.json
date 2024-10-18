@@ -1,0 +1,30 @@
+{
+  "numberOfSnakes": 5,
+  "snakes": [
+    {
+      "name": "Lucy",
+      "start": 11,
+      "end": 4
+    },
+    {
+      "name": "Micheal",
+      "start": 48,
+      "end": 32
+    },
+    {
+      "name": "Diana",
+      "start": 90,
+      "end": 70
+    },
+    {
+      "name": "Kat",
+      "start": 55,
+      "end": 28
+    },
+    {
+      "name": "Mitch",
+      "start": 50,
+      "end": 40
+    }
+  ]
+}
