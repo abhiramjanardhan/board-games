@@ -4,9 +4,17 @@ import java.util.Scanner;
 
 public class InputScanner {
     private final Scanner scanner;
+    private static InputScanner instance;
 
-    public InputScanner() {
+    private InputScanner() {
         this.scanner = new Scanner(System.in);
+    }
+
+    public static InputScanner getInstance() {
+        if (instance == null) {
+            instance = new InputScanner();
+        }
+        return instance;
     }
 
     public Scanner getScanner() {

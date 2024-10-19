@@ -9,7 +9,7 @@ public class Player {
 
     public Player() {
         this.currentPosition = 0;
-        this.scanner = new InputScanner();
+        this.scanner = InputScanner.getInstance();
         this.updateValues();
     }
 

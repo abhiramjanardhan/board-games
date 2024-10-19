@@ -12,8 +12,8 @@ public class SnakeService {
     private final InputScanner scanner;
 
     public SnakeService() {
-        this.scanner = new InputScanner();
-        this.jsonReader = new JsonReader();
+        this.scanner = InputScanner.getInstance();
+        this.jsonReader = JsonReader.getInstance();
     }
 
     public Snake configure() throws PawnPositionException {

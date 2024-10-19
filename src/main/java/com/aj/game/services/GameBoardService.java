@@ -12,7 +12,7 @@ abstract public class GameBoardService implements GameBoardServiceTemplate {
 
     public GameBoardService(String gameBoard) throws BoardException {
         this.gameBoard = gameBoard;
-        this.scanner = new InputScanner();
+        this.scanner = InputScanner.getInstance();
     }
 
     public GameBoardService getBoardService() {

@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         boolean closeGame = false;
-        InputScanner scanner = new InputScanner();
+        InputScanner scanner = InputScanner.getInstance();
         scanner.printMessage("Welcome to your Board Games!");
 
         do {

@@ -184,7 +184,7 @@ public class SnakeNLadderService extends GameBoardService {
     public void play(GameBoard gameBoard) {
         SnakeNLadder snakeNLadder = (SnakeNLadder) gameBoard;
         Player winner = null;
-        boolean playGoesOn = true;
+        boolean playGoesOn = true, quit = false;
         this.displayRules();
 
         do {
@@ -194,9 +194,21 @@ public class SnakeNLadderService extends GameBoardService {
 
                 String letsRoll = "";
                 do {
-                    scanner.print("Enter Y/y to roll the dice: ");
+                    scanner.print("Enter Y/y to roll the dice (E/e to exit): ");
                     letsRoll = this.scanner.getString();
+                    if (letsRoll.equalsIgnoreCase("e")) {
+                        quit = true;
+                        break;
+                    }
                 } while (!letsRoll.equalsIgnoreCase("Y"));
+
+                if (quit) {
+                    playGoesOn = false;
+                    scanner.printNewLine();
+                    scanner.printMessage("Quitting the game ... Farewell!");
+                    scanner.printNewLine();
+                    break;
+                }
 
                 int diceValue = snakeNLadder.getDice().rollDice();
                 scanner.printMessage("Rolling Dice ...");
@@ -247,8 +259,10 @@ public class SnakeNLadderService extends GameBoardService {
             }
         } while (playGoesOn);
 
-        scanner.printMessage("Congratulations on completing the game!");
-        scanner.printMessage("The winner is: " + winner.getName());
-        scanner.printNewLine();
+        if (!quit) {
+            scanner.printMessage("Congratulations on completing the game!");
+            scanner.printMessage("The winner is: " + winner.getName());
+            scanner.printNewLine();
+        }
     }
 }

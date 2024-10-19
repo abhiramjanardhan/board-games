@@ -19,7 +19,7 @@ public class Dice {
 
     public Dice() throws DiceException {
         this.diceCount = 0;
-        this.scanner = new InputScanner();
+        this.scanner = InputScanner.getInstance();
         this.updateDiceCount();
     }
 

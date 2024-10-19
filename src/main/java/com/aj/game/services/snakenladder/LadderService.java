@@ -12,8 +12,8 @@ public class LadderService {
     private final InputScanner scanner;
 
     public LadderService() {
-        this.scanner = new InputScanner();
-        this.jsonReader = new JsonReader();
+        this.scanner = InputScanner.getInstance();
+        this.jsonReader = JsonReader.getInstance();
     }
 
     public Ladder configure() throws PawnPositionException {

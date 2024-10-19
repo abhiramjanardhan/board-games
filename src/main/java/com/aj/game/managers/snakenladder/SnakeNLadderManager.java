@@ -15,7 +15,7 @@ public class SnakeNLadderManager extends GameBoardManager {
 
     public SnakeNLadderManager() throws BoardException {
         super(GameConstants.SNAKE_N_LADDER);
-        this.scanner = new InputScanner();
+        this.scanner = InputScanner.getInstance();
     }
 
     @Override

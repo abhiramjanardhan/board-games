@@ -10,8 +10,8 @@ public class BoardService {
     private final InputScanner scanner;
 
     public BoardService() {
-        this.scanner = new InputScanner();
-        this.jsonReader = new JsonReader();
+        this.scanner = InputScanner.getInstance();
+        this.jsonReader = JsonReader.getInstance();
     }
 
     public Board configure() throws BoardException {
