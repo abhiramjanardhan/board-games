@@ -1,15 +1,18 @@
 package com.aj.game.models;
 
+import com.aj.game.exceptions.BoardException;
 import com.aj.game.utilities.InputScanner;
 
 public class Player {
     private String name;
-    private int currentPosition;
+    private String gameBoard;
     private final InputScanner scanner;
+    private Position position;
 
-    public Player() {
-        this.currentPosition = 0;
+    public Player(String gameBoard) throws BoardException {
+        this.gameBoard = gameBoard;
         this.scanner = InputScanner.getInstance();
+        this.position = Position.getBoardPosition(gameBoard);
         this.updateValues();
     }
 
@@ -21,12 +24,16 @@ public class Player {
         this.name = name;
     }
 
-    public int getCurrentPosition() {
-        return currentPosition;
+    public String getGameBoard() {
+        return gameBoard;
     }
 
-    public void setCurrentPosition(int currentPosition) {
-        this.currentPosition = currentPosition;
+    public void setGameBoard(String gameBoard) {
+        this.gameBoard = gameBoard;
+    }
+
+    public InputScanner getScanner() {
+        return scanner;
     }
 
     private void updateValues() {
@@ -39,7 +46,11 @@ public class Player {
         scanner.printNewLine();
     }
 
-    public void printCurrentPosition() {
-        scanner.printMessage("Current position: " + this.getCurrentPosition());
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
     }
 }

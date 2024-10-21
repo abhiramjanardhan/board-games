@@ -35,7 +35,7 @@ abstract public class GameBoardService implements GameBoardServiceTemplate {
         scanner.printNewLine();
 
         for (int i = 0 ; i < gameBoard.getNumberOfPlayers() ; i++) {
-            gameBoard.getPlayers().add(new Player());
+            gameBoard.getPlayers().add(new Player(this.gameBoard));
         }
 
         return gameBoard;

@@ -21,6 +21,7 @@ public class Main {
                 scanner.printMessage("Please choose from the list below");
                 scanner.printMessage("Please find below the list of games available ...");
                 scanner.printMessage("1. Snake and Ladder");
+                scanner.printMessage("2. Ludo");
                 scanner.printMessage("0. Exit");
 
                 scanner.print("Enter the value: ");

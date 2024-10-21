@@ -117,7 +117,7 @@ public class SnakeNLadderService extends GameBoardService {
         scanner.printMessage("Players on board:");
         snakeNLadder.getPlayers().forEach(player -> {
             scanner.printMessage(player.getName());
-            player.printCurrentPosition();
+            player.getPosition().printCurrentPosition();
             scanner.printNewLine();
         });
     }
@@ -189,7 +189,7 @@ public class SnakeNLadderService extends GameBoardService {
 
         do {
             for (Player player: snakeNLadder.getPlayers()) {
-                scanner.printMessage("Current position of player: " + player.getName() + " is: " + player.getCurrentPosition());
+                scanner.printMessage("Current position of player: " + player.getName() + " is: " + player.getPosition().getCurrentPosition());
                 scanner.printNewLine();
 
                 String letsRoll = "";
@@ -214,30 +214,38 @@ public class SnakeNLadderService extends GameBoardService {
                 scanner.printMessage("Rolling Dice ...");
                 scanner.printMessage("Dice value is: " + diceValue);
                 scanner.printNewLine();
-                player.setCurrentPosition(player.getCurrentPosition() + diceValue);
+
+                int playerCurrentPosition = Integer.parseInt(player.getPosition().getCurrentPosition());
+                player.getPosition().setCurrentPosition(String.valueOf(playerCurrentPosition + diceValue));
 
                 scanner.printMessage("Moving player " + player.getName() + " by " + diceValue + " places");
                 scanner.printNewLine();
 
+                // update the current position
+                playerCurrentPosition = Integer.parseInt(player.getPosition().getCurrentPosition());
+
                 for (Snake snake: snakeNLadder.getSnakes()) {
-                    if (player.getCurrentPosition() == snake.getStart()) {
+                    if (playerCurrentPosition == snake.getStart()) {
                         scanner.printMessage("Ouch! Player " + player.getName() + " is bitten by the snake!");
-                        player.setCurrentPosition(snake.getEnd());
+                        player.getPosition().setCurrentPosition(String.valueOf(snake.getEnd()));
                         scanner.printNewLine();
                         break;
                     }
                 }
 
                 for (Ladder ladder: snakeNLadder.getLadders()) {
-                    if (player.getCurrentPosition() == ladder.getStart()) {
+                    if (playerCurrentPosition == ladder.getStart()) {
                         scanner.printMessage("Hurray! Player " + player.getName() + " climbs the ladder!");
-                        player.setCurrentPosition(ladder.getEnd());
+                        player.getPosition().setCurrentPosition(String.valueOf(ladder.getEnd()));
                         scanner.printNewLine();
                         break;
                     }
                 }
 
-                scanner.printMessage("Player " + player.getName() + " is moved to position " + player.getCurrentPosition());
+                // update the current position
+                playerCurrentPosition = Integer.parseInt(player.getPosition().getCurrentPosition());
+
+                scanner.printMessage("Player " + player.getName() + " is moved to position " + playerCurrentPosition);
                 scanner.printNewLine();
 
                 scanner.print("Display current player status (Y/y - Yes, N/n - No): ");
@@ -246,7 +254,7 @@ public class SnakeNLadderService extends GameBoardService {
                     this.printPlayerStatus(snakeNLadder);
                 }
 
-                if (player.getCurrentPosition() >= snakeNLadder.getEnd()) {
+                if (playerCurrentPosition >= snakeNLadder.getEnd()) {
                     winner = player;
                     playGoesOn = false;
                     break;
