@@ -84,6 +84,7 @@ public class LudoService extends GameBoardService {
         this.finalLegLength = grid.getFinalLegLength();
         this.homeRunPosition = this.finalLegLength + 1;
         availableColors.forEach(gridColor -> this.colorGridMap.put(gridColor, grid));
+        this.boardService.setColorGridMap(this.colorGridMap);
 
         for (int i = 0; i < ludo.getPlayers().size() ; i++) {
             Player player = ludo.getPlayers().get(i);
@@ -155,52 +156,6 @@ public class LudoService extends GameBoardService {
 
         scanner.printMessage("Enjoy the game!");
         scanner.printNewLine();
-    }
-
-    private boolean determinePositionSafety(String positionType) {
-        return LudoConstants.SAFE_POSITIONS.contains(positionType);
-    }
-
-    private AbstractMap.SimpleEntry<Boolean, Grid> getCurrentPositionDetails(int position, int pawnNumber, Player currentPlayer) {
-        LudoPosition currentPlayerPosition = (LudoPosition) currentPlayer.getPosition();
-        Grid currentGrid = this.colorGridMap.get(currentPlayerPosition.getGridPawns().get(pawnNumber).getColor());
-        String positionType = this.gridService.determineGridPosition(position, currentGrid);
-
-        return new AbstractMap.SimpleEntry<>(this.determinePositionSafety(positionType), currentGrid);
-    }
-
-    private AbstractMap.SimpleEntry<Integer, Player> getOtherPlayerOnPosition(int position, int pawnNumber, Player currentPlayer, List<Player> players) {
-        AbstractMap.SimpleEntry<Integer, Player> otherPlayer = null;
-        AbstractMap.SimpleEntry<Boolean, Grid> details = this.getCurrentPositionDetails(position, pawnNumber, currentPlayer);
-
-        if (details.getKey()) {
-            return null;
-        }
-
-        for (Player player: players) {
-            if (!player.getName().equalsIgnoreCase(currentPlayer.getName())) {
-                LudoPosition otherPlayerPosition = (LudoPosition) player.getPosition();
-                Map<Integer, Pawn> otherPlayerPawns = otherPlayerPosition.getGridPawns();
-                boolean found = false;
-
-                for (Map.Entry<Integer, Pawn> pawnEntry: otherPlayerPawns.entrySet()) {
-                    Integer otherPawnNumber = pawnEntry.getKey();
-                    Pawn otherPawn = pawnEntry.getValue();
-
-                    if (otherPawn.getPosition() == position && !otherPawn.isCanEnterFinalLeg()) {
-                        found = true;
-                        otherPlayer = new AbstractMap.SimpleEntry<>(otherPawnNumber, player);
-                        break;
-                    }
-                }
-
-                if (found) {
-                    break;
-                }
-            }
-        }
-
-        return otherPlayer;
     }
 
     @Override
@@ -356,7 +311,7 @@ public class LudoService extends GameBoardService {
                             interimNextPosition %= this.totalSpacesPerGrid;
                         }
 
-                        AbstractMap.SimpleEntry<Boolean, Grid> details = this.getCurrentPositionDetails(interimNextPosition, pawnNumber, player);
+                        AbstractMap.SimpleEntry<Boolean, Grid> details = this.boardService.getCurrentPositionDetails(interimNextPosition, pawnNumber, player);
                         boolean isCurrentPositionSafe = details.getKey();
                         Grid currentGrid = details.getValue();
                         boolean hasEnteredFinalLeg = false;
@@ -396,7 +351,7 @@ public class LudoService extends GameBoardService {
                             }
                         } else {
                             // check if the current player lands on other player pawn, if so then update the other player pawn back to its home base
-                            AbstractMap.SimpleEntry<Integer, Player> otherPlayerMap = this.getOtherPlayerOnPosition(interimNextPosition, pawnNumber, player, ludo.getPlayers());
+                            AbstractMap.SimpleEntry<Integer, Player> otherPlayerMap = this.boardService.getOtherPlayerOnPosition(interimNextPosition, pawnNumber, player, ludo.getPlayers());
                             if (otherPlayerMap != null && !isCurrentPositionSafe) {
                                 Integer otherPlayerPawnNumber = otherPlayerMap.getKey();
                                 Player otherPlayer = otherPlayerMap.getValue();
