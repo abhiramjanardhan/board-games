@@ -19,12 +19,15 @@ import java.util.List;
 
 public class SnakeNLadderService extends GameBoardService {
 
-    private final BoardService boardService = new BoardService();
-    private final SnakeService snakeService = new SnakeService();
-    private final LadderService ladderService = new LadderService();
+    private final BoardService boardService;
+    private final SnakeService snakeService;
+    private final LadderService ladderService;
 
     public SnakeNLadderService() throws BoardException {
         super(GameConstants.SNAKE_N_LADDER);
+        this.boardService = new BoardService();
+        this.snakeService = new SnakeService();
+        this.ladderService = new LadderService();
     }
 
     @Override
@@ -104,40 +107,13 @@ public class SnakeNLadderService extends GameBoardService {
         scanner.printMessage("The board is configured successfully with the below details:");
         scanner.printNewLine();
 
-        this.printPlayerStatus(snakeNLadder);
-        this.printBoardDetails(snakeNLadder);
+        snakeNLadder.printPlayerStatus();
+        snakeNLadder.printBoardDetails();
 
         scanner.printMessage("Please enjoy the game ...");
         scanner.printNewLine();
 
         return snakeNLadder;
-    }
-
-    private void printPlayerStatus(SnakeNLadder snakeNLadder) {
-        scanner.printMessage("Players on board:");
-        snakeNLadder.getPlayers().forEach(player -> {
-            scanner.printMessage(player.getName());
-            player.getPosition().printCurrentPosition();
-            scanner.printNewLine();
-        });
-    }
-
-    private void printBoardDetails(SnakeNLadder snakeNLadder) {
-        scanner.printMessage("There are a total of " + snakeNLadder.getNumberOfSnakes() + " snakes on board");
-        snakeNLadder.getSnakes().forEach(snake -> {
-            scanner.printMessage("Details for snake: " + snake.getName());
-            scanner.printMessage("Biting at position: " + snake.getStart());
-            scanner.printMessage("Dropping at position: " + snake.getEnd());
-            scanner.printNewLine();
-        });
-
-        scanner.printMessage("There are a total of " + snakeNLadder.getNumberOfLadders() + " ladders on board");
-        snakeNLadder.getLadders().forEach(ladder -> {
-            scanner.printMessage("Details for ladder: " + ladder.getName());
-            scanner.printMessage("Climbing at position: " + ladder.getStart());
-            scanner.printMessage("Reaching at position: " + ladder.getEnd());
-            scanner.printNewLine();
-        });
     }
 
     private void validate(SnakeNLadder gameBoard) {
@@ -181,7 +157,7 @@ public class SnakeNLadderService extends GameBoardService {
     }
 
     @Override
-    public void play(GameBoard gameBoard) {
+    public void play(GameBoard gameBoard) throws BoardException {
         SnakeNLadder snakeNLadder = (SnakeNLadder) gameBoard;
         Player winner = null;
         boolean playGoesOn = true, quit = false;
@@ -251,7 +227,7 @@ public class SnakeNLadderService extends GameBoardService {
                 scanner.print("Display current player status (Y/y - Yes, N/n - No): ");
                 String printStatus = scanner.getString();
                 if (printStatus.equalsIgnoreCase("Y")) {
-                    this.printPlayerStatus(snakeNLadder);
+                    snakeNLadder.printPlayerStatus();
                 }
 
                 if (playerCurrentPosition >= snakeNLadder.getEnd()) {

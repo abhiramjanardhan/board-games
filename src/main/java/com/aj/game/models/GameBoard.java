@@ -1,5 +1,7 @@
 package com.aj.game.models;
 
+import com.aj.game.utilities.InputScanner;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ public class GameBoard {
     private int numberOfPlayers;
     private List<Player> players = new ArrayList<>();
     private Dice dice;
+    protected InputScanner scanner = InputScanner.getInstance();
 
     public Dice getDice() {
         return dice;

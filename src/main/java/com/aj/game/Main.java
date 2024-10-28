@@ -1,9 +1,10 @@
 package com.aj.game;
 
+import com.aj.game.constants.GameConstants;
 import com.aj.game.exceptions.BoardException;
 import com.aj.game.managers.GameBoardManager;
-import com.aj.game.managers.snakenladder.SnakeNLadderManager;
-import com.aj.game.models.snakenladder.SnakeNLadder;
+import com.aj.game.managers.GameBoardManagerFactory;
+import com.aj.game.models.GameBoard;
 import com.aj.game.utilities.InputScanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -30,16 +31,22 @@ public class Main {
                 if (game == 0) {
                     closeGame = true;
                 } else {
+                    String gameBoard = "";
                     switch (game) {
                         case 1:
-                            GameBoardManager boardManager = new SnakeNLadderManager();
-                            SnakeNLadder snakeNLadder = (SnakeNLadder) boardManager.configure();
-                            boardManager.validate(snakeNLadder);
-                            boardManager.play(snakeNLadder);
+                            gameBoard = GameConstants.SNAKE_N_LADDER;
+                            break;
+                        case 2:
+                            gameBoard = GameConstants.LUDO;
                             break;
                         default:
                             throw new BoardException("Invalid game option.");
                     }
+
+                    GameBoardManager boardManager = GameBoardManagerFactory.getManager(gameBoard);
+                    GameBoard snakeNLadder = boardManager.configure();
+                    boardManager.validate(snakeNLadder);
+                    boardManager.play(snakeNLadder);
                 }
             } catch (Exception e) {
                 scanner.printMessage(e.getMessage());

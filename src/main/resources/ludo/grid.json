@@ -1,0 +1,21 @@
+{
+  "totalSpacesPerGrid": 13,
+  "finalLegLength": 5,
+  "details": [
+    {
+      "position": 4,
+      "isHome": false,
+      "entryForHomeRun": false
+    },
+    {
+      "position": 9,
+      "isHome": true,
+      "entryForHomeRun": false
+    },
+    {
+      "position": 7,
+      "isHome": false,
+      "entryForHomeRun": true
+    }
+  ]
+}

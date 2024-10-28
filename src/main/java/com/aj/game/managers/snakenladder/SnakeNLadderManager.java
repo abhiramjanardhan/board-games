@@ -5,22 +5,13 @@ import com.aj.game.exceptions.BoardException;
 import com.aj.game.managers.GameBoardManager;
 import com.aj.game.models.GameBoard;
 import com.aj.game.models.snakenladder.SnakeNLadder;
-import com.aj.game.utilities.InputScanner;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SnakeNLadderManager extends GameBoardManager {
-    private final InputScanner scanner;
-
     public SnakeNLadderManager() throws BoardException {
         super(GameConstants.SNAKE_N_LADDER);
-        this.scanner = InputScanner.getInstance();
-    }
-
-    @Override
-    public GameBoard configure() throws Exception {
-        return this.getBoardService().configure();
     }
 
     @Override
@@ -63,10 +54,5 @@ public class SnakeNLadderManager extends GameBoardManager {
 
         scanner.printMessage("The entered configuration is valid ...");
         scanner.printNewLine();
-    }
-
-    @Override
-    public void play(GameBoard gameBoard) {
-        this.getBoardService().play(gameBoard);
     }
 }

@@ -6,21 +6,12 @@ import com.aj.game.models.Player;
 import com.aj.game.utilities.InputScanner;
 
 abstract public class GameBoardService implements GameBoardServiceTemplate {
-    private GameBoardService boardService;
     private final String gameBoard;
     protected InputScanner scanner;
 
     public GameBoardService(String gameBoard) throws BoardException {
         this.gameBoard = gameBoard;
         this.scanner = InputScanner.getInstance();
-    }
-
-    public GameBoardService getBoardService() {
-        return boardService;
-    }
-
-    public void setBoardService(GameBoardService boardService) {
-        this.boardService = boardService;
     }
 
     protected GameBoard configureCommonInformation(GameBoard gameBoard) throws Exception {

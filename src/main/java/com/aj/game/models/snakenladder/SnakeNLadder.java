@@ -1,5 +1,6 @@
 package com.aj.game.models.snakenladder;
 
+import com.aj.game.exceptions.BoardException;
 import com.aj.game.models.GameBoard;
 
 import java.util.ArrayList;
@@ -46,5 +47,36 @@ public class SnakeNLadder extends GameBoard {
 
     public void setNumberOfSnakes(int numberOfSnakes) {
         this.numberOfSnakes = numberOfSnakes;
+    }
+
+    public void printPlayerStatus() {
+        scanner.printMessage("Players on board:");
+        this.getPlayers().forEach(player -> {
+            try {
+                scanner.printMessage(player.getName());
+                player.getPosition().printCurrentPosition();
+                scanner.printNewLine();
+            } catch (BoardException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+    public void printBoardDetails() {
+        scanner.printMessage("There are a total of " + this.getNumberOfSnakes() + " snakes on board");
+        this.getSnakes().forEach(snake -> {
+            scanner.printMessage("Details for snake: " + snake.getName());
+            scanner.printMessage("Biting at position: " + snake.getStart());
+            scanner.printMessage("Dropping at position: " + snake.getEnd());
+            scanner.printNewLine();
+        });
+
+        scanner.printMessage("There are a total of " + this.getNumberOfLadders() + " ladders on board");
+        this.getLadders().forEach(ladder -> {
+            scanner.printMessage("Details for ladder: " + ladder.getName());
+            scanner.printMessage("Climbing at position: " + ladder.getStart());
+            scanner.printMessage("Reaching at position: " + ladder.getEnd());
+            scanner.printNewLine();
+        });
     }
 }

@@ -9,7 +9,7 @@ public class SnakeNLadderPosition extends Position {
         this.currentPosition = 0;
     }
 
-    public String getCurrentPosition() {
+    public String getCurrentPosition(String... parameters) {
         return String.valueOf(currentPosition);
     }
 
@@ -17,7 +17,7 @@ public class SnakeNLadderPosition extends Position {
         this.currentPosition = Integer.parseInt(positions[0]);
     }
 
-    public void printCurrentPosition() {
+    public void printCurrentPosition(String... parameters) {
         scanner.printMessage("Current position: " + this.getCurrentPosition());
     }
 }
