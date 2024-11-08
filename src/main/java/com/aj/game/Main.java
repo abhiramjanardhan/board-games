@@ -44,9 +44,9 @@ public class Main {
                     }
 
                     GameBoardManager boardManager = GameBoardManagerFactory.getManager(gameBoard);
-                    GameBoard snakeNLadder = boardManager.configure();
-                    boardManager.validate(snakeNLadder);
-                    boardManager.play(snakeNLadder);
+                    GameBoard gameBoardData = boardManager.configure();
+                    boardManager.validate(gameBoardData);
+                    boardManager.play(gameBoardData);
                 }
             } catch (Exception e) {
                 scanner.printMessage(e.getMessage());
